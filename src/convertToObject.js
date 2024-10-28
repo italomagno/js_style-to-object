@@ -15,10 +15,9 @@ function convertToObject(sourceString) {
     .forEach((line) => {
       const [key, value] = line.split(':').map((item) => {
         const trimValue = item.trim();
-        const removeSemiColumn = trimValue.split(';').join('');
-        const removeLineBreakValue = removeSemiColumn.replace(/\r/g, '');
+        const removeLineBreakValue = trimValue.replace(/\r/g, '');
 
-        return removeLineBreakValue.trimEnd();
+        return removeLineBreakValue;
       });
 
       result[key] = value;
